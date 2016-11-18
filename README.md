@@ -1,24 +1,14 @@
 # README
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+Alpha Camp Web 12屆 期中考
 
-Things you may want to cover:
-
-* Ruby version
-
-* System dependencies
-
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+* 可以張貼災情訊息，欄位包括
+  1. 分類(快報資訊、求物資、求救，單選的 radio 或 select)
+  2. 標題(單欄文字)
+  3. 內文(多欄文字框) 20%
+* 可以在首頁瀏覽並分頁所有訊息，顯示訊息的標題和張貼時間 10%
+* 可以針對每則訊息進行留言 (一則訊息可以多次留言) 10%
+* 在首頁點選訊息標題後，可以瀏覽完整的訊息頁面，包括所有的留言 10%
+* 使用者可以註冊、登入 (使用 devise) - 10%
+* 使用者可以刪除自己張貼的訊息和留言 - 10%
+* 使用者可以編輯自己張貼的訊息，包括修改標題和內文 - 10%
