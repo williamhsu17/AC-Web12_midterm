@@ -4,7 +4,7 @@
   </div>
   <div class="row">
     <div class="col-md-12">
-      <h5>發佈者：<span></span></h5>
+      <h5>發佈者：<span><%= @post.user.short_name %></span></h5>
       <h5>分類：<span><%= @post.category.name %></span></h5>
       <h5>內容:</h5>
       <p><%= simple_format(@post.content) %></p>
