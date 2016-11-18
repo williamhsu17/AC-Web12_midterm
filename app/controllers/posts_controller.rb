@@ -1,4 +1,5 @@
 class PostsController < ApplicationController
+  before_action :authenticate_user!, :except => [:index]
   before_action :set_post, :only => [:edit, :show, :update, :destroy]
 
   Num_posts_per_page = 10
