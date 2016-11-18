@@ -3,6 +3,20 @@
     <h1>鍵盤救災</h1>
     <h4>用愛發電 用鍵盤救災</h4>
   </div>
+  <% if params[:status] != "new" && params[:status] != "update" %>
+    <div class="row">
+      <%= link_to "NewInfo", new_post_path, :class => "btn btn-success glyphicon glyphicon-plus pull-right" %>
+    </div>
+  <% end %>
+  <div class="row">
+    <% if params[:status] == "new" || params[:status] == "update" %>
+      <%= form_for @post, :url => params[:set_post_path], :method => params[:set_method] do |p| %>
+        <%= render :partial => "form", :locals => { :post => p } %>
+        <%= p.submit "Submit", :class => "btn btn-primary" %>
+        <%= link_to "Cancel", posts_path, :method => :get, :class => "btn btn-danger" %>
+      <% end %>
+    <% end %>
+  </div>
   <div class="row">
     <table class="table table-hover">
       <thead>
