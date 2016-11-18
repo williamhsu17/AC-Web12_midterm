@@ -1,0 +1,16 @@
+<div class="container">
+  <div class="row">
+    <h4><%= "[#{@post.category.name}] #{@post.name}" %></h4>
+  </div>
+  <div class="row">
+    <div class="col-md-12">
+      <h5>發佈者：<span></span></h5>
+      <h5>分類：<span><%= @post.category.name %></span></h5>
+      <h5>內容:</h5>
+      <p><%= simple_format(@post.content) %></p>
+    </div>
+      <div class="col-md-12">
+        <%= link_to "Back", posts_path, :class => "btn btn-primary pull-right" %>
+    </div>
+  </div>
+</div>

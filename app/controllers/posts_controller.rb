@@ -1,7 +1,7 @@
 class PostsController < ApplicationController
   before_action :set_post, :only => [:edit, :show, :update, :destroy]
 
-  Num_posts_per_page = 3
+  Num_posts_per_page = 10
 
   def index
     if params[:status] == "new"
@@ -27,7 +27,10 @@ class PostsController < ApplicationController
                             :set_method => :post)
   end
   def edit
-
+    redirect_to posts_path( :id => params[:id],
+                            :status => :update,
+                            :set_post_path => post_path(@post),
+                            :set_method => :patch)
   end
   def show
 
