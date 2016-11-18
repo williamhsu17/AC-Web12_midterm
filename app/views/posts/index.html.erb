@@ -25,6 +25,7 @@
           <th class="text-center">分類</th>
           <th class="text-center">標題</th>
           <th class="text-center">內容</th>
+          <th class="text-center">發佈者</th>
           <th class="text-center">張貼時間</th>
           <th class="text-center">show</th>
           <th class="text-center">edit</th>
@@ -38,15 +39,20 @@
           <td class="text-center"><%= p.category.name %></td>
           <td class=""><%= p.name %></td>
           <td><%= p.content %></td>
+          <td class="text-center"><%= p.user.try(:short_name) %></td>
           <td><%= p.created_at %></td>
           <td class="text-center custome_icon">
             <%= link_to "", post_path(p), :class => "btn btn-default glyphicon glyphicon-th-list" %>
           </td>
           <td class="text-center custome_icon">
-            <%= link_to "", edit_post_path(p), :class => "btn btn-default glyphicon glyphicon-edit" %>
+            <% if p.user == try(:current_user) %>
+              <%= link_to "", edit_post_path(p), :class => "btn btn-default glyphicon glyphicon-edit" %>
+            <% end %>
           </td>
           <td class="text-center custome_icon">
-            <%= link_to "", post_path(p, :page => params[:page]), :method => :delete, :class => "btn btn-danger glyphicon glyphicon-trash" %>
+            <% if p.user == try(:current_user) %>
+              <%= link_to "", post_path(p, :page => params[:page]), :method => :delete, :class => "btn btn-danger glyphicon glyphicon-trash" %>
+            <% end %>
           </td>
         </tr>
       <% end %>

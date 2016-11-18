@@ -20,6 +20,7 @@ class PostsController < ApplicationController
 
     @posts = Post.page(params[:page]).per(Num_posts_per_page)
     @posts = @posts.includes(:category)
+    @posts = @posts.includes(:user)
   end
   def new
     redirect_to posts_path( :status => :new,
@@ -38,7 +39,7 @@ class PostsController < ApplicationController
 
   def create
     @post = Post.new(post_params)
-    # @post.user = current_user
+    @post.user = current_user
     if @post.save
       flash[:notice] = "新增主題成功"
       redirect_to posts_path

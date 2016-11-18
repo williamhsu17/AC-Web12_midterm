@@ -5,4 +5,5 @@ class Post < ApplicationRecord
   validates :content, :length => { minimum: 20 }
 
   belongs_to :category
+  belongs_to :user
 end
