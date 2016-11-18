@@ -37,7 +37,10 @@
         <tr>
           <td class="text-center custome_icon"><%= p.id %></td>
           <td class="text-center"><%= p.category.name %></td>
-          <td class=""><%= p.name %></td>
+          <!-- <td class=""><%= p.name %></td> -->
+          <% title_name = p.name %>
+          <td><%= link_to title_name, post_path(p) %></td>
+
           <td><%= p.content %></td>
           <td class="text-center"><%= p.user.try(:short_name) %></td>
           <td class="text-center comment_head"><%= p.created_at %></td>
