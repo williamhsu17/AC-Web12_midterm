@@ -5,3 +5,6 @@
 #
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
+Category.create!( :name => "快報資訊" )
+Category.create!( :name => "求救" )
+Category.create!( :name => "求物資" )
