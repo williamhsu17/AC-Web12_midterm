@@ -34,7 +34,7 @@ class PostsController < ApplicationController
                             :set_method => :patch)
   end
   def show
-
+    @comments = @post.comments.includes(:user) if @post.comments
   end
 
   def create

@@ -13,4 +13,47 @@
         <%= link_to "Back", posts_path, :class => "btn btn-primary pull-right" %>
     </div>
   </div>
+  <div class="row">
+    <h4>回覆</h4>
+  </div>
+  <div class="row">
+    <div class="col-md-12">
+      <table class="table">
+        <thead>
+          <tr>
+            <th class="text-center">發佈人</th>
+            <th class="text-center">內容</th>
+            <th class="text-center comment_head">回覆時間</th>
+            <th class="text-center custome_icon"></th>
+          </tr>
+        </thead>
+        <tbody>
+
+          <% @comments.each do |c| %>
+          <tr>
+            <td class="text-center comment_head"><%= c.user.short_name %></td>
+            <td><%= simple_format(c.content) %></td>
+            <td><%= c.created_at %></td>
+            <td class="text-center custome_icon">
+              <% if c.user == current_user %>
+                <%= link_to "", post_comment_path(@post, c), :method => :delete, :class => "btn btn-danger glyphicon glyphicon-trash" %>
+              <% end %>
+            </td>
+          </tr>
+          <% end %>
+        </tbody>
+      </table>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-md-12">
+      <div class="form-group">
+        <%= form_for Comment.new, :url => post_comments_path(@post), :method => :post do |c| %>
+          <%= c.label :content, "回覆內容：" %>
+          <%= c.text_area :content, :class => "form-control" %>
+          <%= c.submit "發表回覆", :class => "btn btn-primary pull-right" %>
+        <% end %>
+      </div>
+    </div>
+  </div>
 </div>

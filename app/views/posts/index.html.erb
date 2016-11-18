@@ -40,7 +40,7 @@
           <td class=""><%= p.name %></td>
           <td><%= p.content %></td>
           <td class="text-center"><%= p.user.try(:short_name) %></td>
-          <td><%= p.created_at %></td>
+          <td class="text-center comment_head"><%= p.created_at %></td>
           <td class="text-center custome_icon">
             <%= link_to "", post_path(p), :class => "btn btn-default glyphicon glyphicon-th-list" %>
           </td>
