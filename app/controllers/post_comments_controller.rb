@@ -5,12 +5,12 @@ class PostCommentsController < ApplicationController
     @comment = @post.comments.new(comment_params)
     @comment.user = current_user
     @comment.save
-
     redirect_to post_path(@post)
   end
 
   def destroy
-    @comment = @post.comments.find(params[:id])
+    # 沒有針對是不是使用者進行驗證
+    @comment = current_user.comments.find(params[:id])
     @comment.destroy
     redirect_to post_path(@post)
   end
@@ -19,6 +19,7 @@ class PostCommentsController < ApplicationController
   def find_post
     @post = Post.find(params[:post_id])
   end
+
   def comment_params
     params.require(:comment).permit(:content)
   end
